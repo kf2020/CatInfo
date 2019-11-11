@@ -6,4 +6,127 @@
     android:layout_height="match_parent"
     tools:context=".activities.CatDetailActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+
+        >
+
+        <TextView
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginTop="10dp"
+            android:textColor="@android:color/black"
+            android:textSize="36sp"
+            android:text="Cat Name"
+            ></TextView>
+
+        <ImageView
+            android:id="@+id/cat_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="175dp"
+            android:minHeight="175dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/name"
+            android:layout_marginTop="20dp"
+            android:layout_marginRight="10dp"
+            android:background="@android:color/black"
+            ></ImageView>
+
+        <TextView
+            android:id="@+id/description_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="@+id/cat_img"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/cat_img"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:text="Description:"
+            ></TextView>
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="190dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@+id/description_label"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@id/cat_img"
+            android:gravity="left"
+            android:layout_marginLeft="10dp"
+            android:textSize="24sp"
+            android:text="Longer Description - this can is named x and y and xz efasg wer asdfalkjoigasndf"
+            ></TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    <TextView
+        android:id="@+id/origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/main_body"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginTop="20dp"
+        android:textSize="24sp"
+        android:text="Origin: X"
+        />
+
+    <TextView
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/origin"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24sp"
+        android:text="Weight: X"
+        />
+
+    <TextView
+        android:id="@+id/temperament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/weight"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24sp"
+        android:text="Temperament: X"
+        />
+
+    <TextView
+        android:id="@+id/lifespan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/temperament"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24sp"
+        android:text="Lifespan: X"
+        />
+
+    <TextView
+        android:id="@+id/dog_friendly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/lifespan"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:layout_marginLeft="15dp"
+        android:layout_marginRight="10dp"
+        android:textSize="24sp"
+        android:text="Dog Friendly: X"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

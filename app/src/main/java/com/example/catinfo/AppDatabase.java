@@ -26,7 +26,7 @@ import com.example.catinfo.model.CatDao;
  */
 @Database(entities = {Cat.class}, version = 1)  // Replace "Book.class" with whatever your Book entity class is.
 public abstract class AppDatabase extends RoomDatabase {
-    public abstract CatDao bookDao();          // Replace BookDao with whatever you name your DAO
+    public abstract CatDao catDao();          // Replace BookDao with whatever you name your DAO
 
     private static AppDatabase instance;
     public static AppDatabase getInstance(Context context) {
