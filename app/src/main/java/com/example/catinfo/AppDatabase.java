@@ -6,12 +6,14 @@ import android.content.Context;
 
 import androidx.room.Database;
 import androidx.room.Room;
+import androidx.room.TypeConverters;
 
 import com.example.catinfo.model.Cat;
 import com.example.catinfo.model.CatDao;
 
 
 @Database(entities = {Cat.class}, version = 1, exportSchema = false)
+@TypeConverters({Converters.class})
 public abstract class AppDatabase extends RoomDatabase {
     public abstract CatDao catDao();
 
@@ -19,7 +21,7 @@ public abstract class AppDatabase extends RoomDatabase {
     public static AppDatabase getInstance(Context context) {
 
         if(instance == null) {
-            instance = Room.databaseBuilder(context, AppDatabase.class, "catDb")
+            instance = Room.databaseBuilder(context, AppDatabase.class, "catdb")
                     .allowMainThreadQueries()   // <== IMPORTANT TO NOTE:
                     //     This is NOT correct to do in a completed app.
                     //     Next week we will fix it, but for now this

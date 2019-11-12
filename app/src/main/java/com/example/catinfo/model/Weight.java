@@ -6,12 +6,17 @@ import androidx.room.PrimaryKey;
 
 import com.google.gson.annotations.SerializedName;
 
-@Entity
+
 public class Weight {
-    @NonNull
-    @PrimaryKey
     @SerializedName("imperial")
     private String weightImperial;
+
+    public Weight() {
+    }
+
+    public Weight(String weight) {
+        this.weightImperial = weight;
+    }
 
     public void setWeightImperial(String weightImperial) {
         this.weightImperial = weightImperial;

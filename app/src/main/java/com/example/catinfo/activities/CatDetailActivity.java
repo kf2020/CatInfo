@@ -8,12 +8,24 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.bumptech.glide.Glide;
 import com.example.catinfo.AppDatabase;
 import com.example.catinfo.Favourites;
 import com.example.catinfo.R;
 import com.example.catinfo.model.Cat;
+import com.example.catinfo.model.ImageResponse;
+import com.google.gson.Gson;
+
+import java.util.Arrays;
+import java.util.List;
 
 /*@NonNull
     @PrimaryKey
@@ -37,6 +49,7 @@ import com.example.catinfo.model.Cat;
 
 public class CatDetailActivity extends AppCompatActivity {
     ConstraintLayout catConstraintLayout;
+    ImageView catImage;
     TextView nameTextView;
     TextView descriptionTextView;
     TextView origin;
@@ -53,6 +66,7 @@ public class CatDetailActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cat_detail);
 
         catConstraintLayout = findViewById(R.id.cat);
+        catImage = catConstraintLayout.findViewById(R.id.cat_img);
         nameTextView = catConstraintLayout.findViewById(R.id.name);
         descriptionTextView = catConstraintLayout.findViewById(R.id.description);
         favourite = catConstraintLayout.findViewById(R.id.favourite_layout);
@@ -103,7 +117,39 @@ public class CatDetailActivity extends AppCompatActivity {
 
         });
 
-        //String imageUrl = cat.getReferenceImgId();
-       // Glide.with(this).load(imageUrl).into(coverImageView);
+        final RequestQueue requestQueue =  Volley.newRequestQueue(this);
+
+        String url = "https://api.thecatapi.com/v1/images/search?breed_id="+cat.getId();
+
+        Response.Listener<String> responseListener = new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+
+                Gson gson = new Gson();
+                ImageResponse[] imageResponses = gson.fromJson(response, ImageResponse[].class);
+
+                String imageUrl = imageResponses[0].getUrl();
+                Glide.with(getApplicationContext()).load(imageUrl).into(catImage);
+
+                requestQueue.stop();
+            }
+        };
+
+        Response.ErrorListener errorListener = new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getApplicationContext(),"The request failed: " //+ error.getMessage()
+                        , Toast.LENGTH_SHORT).show();
+                requestQueue.stop();
+            }
+        };
+
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, responseListener,
+                errorListener);
+
+        requestQueue.add(stringRequest);
+
+
     }
 }

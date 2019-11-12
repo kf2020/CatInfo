@@ -10,6 +10,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:paddingBottom="25dp"
     tools:context=".activities.CatDetailActivity">
 
 
@@ -19,7 +20,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
-
         >
 
         <TextView
@@ -102,7 +102,7 @@
             app:layout_constraintRight_toLeftOf="@id/cat_img"
             android:gravity="left"
             android:layout_marginLeft="10dp"
-            android:textSize="22sp"
+            android:textSize="18sp"
             android:text="Longer Description - this can is named x and y and xz efasg wer asdfalkjoigasndf"
             ></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
@@ -169,7 +169,7 @@
 
     <TextView
         android:id="@+id/temperament"
-        android:layout_width="wrap_content"
+        android:layout_width="375dp"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="@id/temperament_label"
         app:layout_constraintTop_toBottomOf="@id/temperament_label"
@@ -208,6 +208,7 @@
         app:layout_constraintLeft_toLeftOf="parent"
         android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
+        android:layout_marginBottom="25dp"
         android:textSize="24sp"
         android:textStyle="bold"
         android:text="Dog Friendly (1-5 scale): "
