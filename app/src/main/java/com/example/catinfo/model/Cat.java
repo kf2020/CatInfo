@@ -1,5 +1,6 @@
 package com.example.catinfo.model;
 
+import androidx.annotation.NonNull;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 import com.google.gson.annotations.SerializedName;
@@ -19,10 +20,12 @@ o Dog friendliness level
 
 @Entity
 public class Cat {
+    @NonNull
     @PrimaryKey
     String id;
 
     String name;
+    String description;
 
     @SerializedName("reference_image_id")
     String referenceImgId;
@@ -50,6 +53,14 @@ public class Cat {
 
     public void setId(String id) {
         this.id = id;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public String getName() {

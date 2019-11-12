@@ -9,11 +9,14 @@ import androidx.fragment.app.FragmentTransaction;
 import android.os.Bundle;
 import android.view.MenuItem;
 
+import com.example.catinfo.Favourites;
 import com.example.catinfo.R;
+import com.example.catinfo.fragments.CatRecyclerFragment;
+import com.example.catinfo.fragments.FavRecyclerFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 public class MainActivity extends AppCompatActivity {
-
+    static Favourites favourites = new Favourites();
     BottomNavigationView bottomNavigationView;
 
     @Override
@@ -22,9 +25,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         // I want there to be a Fragment in the slot from the start
 
-        /*Fragment fragment = new ArticleRecyclerFragment();
-        swapFragment(fragment);
-*/
         bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -57,6 +57,13 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+        Fragment fragment = new CatRecyclerFragment();
+        swapFragment(fragment);
+    }
+
+    public static Favourites getFavourites() {
+        return favourites;
     }
 
     /**

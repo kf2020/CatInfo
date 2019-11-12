@@ -18,13 +18,11 @@ public interface CatDao {
     @Query("SELECT * FROM cat")
     public List<Cat> getAllCats();
 
-    /*
-    @Query("SELECT * FROM cat")
+    @Query("SELECT * FROM cat ORDER BY name ")
     public List<Cat> getAllCatsSorted();
 
-    @Query("SELECT * FROM book WHERE isbn = :isbnVar")
-    public Cat findBookByIsbn(long isbnVar);
-    */
+    @Query("SELECT * FROM cat WHERE id = :idVar")
+    public Cat findCatById(String idVar);
 
     @Delete
     void delete(Cat cat);

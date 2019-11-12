@@ -6,21 +6,37 @@
     android:layout_height="match_parent"
     tools:context=".activities.MainActivity">
 
-    <SearchView
-        android:id="@+id/search_bar"
-        android:layout_height="30dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/search_area"
         android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent">
-    </SearchView>
 
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="325dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"></EditText>
+
+        <Button
+            android:id="@+id/search_button"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:icon="@android:drawable/ic_menu_search"></Button>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <FrameLayout
         android:id="@+id/recycler_cats"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/search_bar"
+        app:layout_constraintTop_toBottomOf="@+id/search_area"
         android:background="@color/colorGrey"
         tools:context=".fragments.CatRecyclerFragment">
 

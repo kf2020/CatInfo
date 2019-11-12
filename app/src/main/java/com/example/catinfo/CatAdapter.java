@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -58,16 +59,12 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
         public CatViewHolder(View v) {
             super(v);  // runs the constructor for the ViewHolder superclass
             view = v;
-            nameTextView = v.findViewById(R.id.name);
-
-
+            nameTextView = v.findViewById(R.id.cat_name);
         }
 
         // See comment in onBindViewHolder
         public void bind(final Cat cat) {
-            nameTextView.setText(cat.getName());
-            /*authorTextView.setText(cat.getAuthor());
-            rankTextView.setText("#" + cat.getRank());*/
+            nameTextView.setText(cat.getName().toString());
 
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -75,7 +72,7 @@ public class CatAdapter extends RecyclerView.Adapter<CatAdapter.CatViewHolder> {
                     Context context = view.getContext();
 
                     Intent intent = new Intent(context, CatDetailActivity.class);
-                    intent.putExtra("isbn", cat.getId());
+                    intent.putExtra("id", cat.getId());
                     context.startActivity(intent);
                 }
             });

@@ -10,21 +10,8 @@ import androidx.room.Room;
 import com.example.catinfo.model.Cat;
 import com.example.catinfo.model.CatDao;
 
-/**
- *  Refer to: https://developer.android.com/training/data-storage/room/index.html
- *  The only difference here is that we've implemented a getInstance method.
- *  This means that we're not building a new database each time we want to access the database.
- *  We build the instance the first time, and then every following call will reuse the instance.
- *
- *  Example Usage:
- *
- *  AppDatabase db = AppDatabase.getInstance(context)
- *  Book book = db.bookDao().findBookByIsbn()
- *  List<Book> books = db.bookDao().getAllBooks()
- *  ... etc (whatever methods you defined in your Dao).
- *
- */
-@Database(entities = {Cat.class}, version = 1)  // Replace "Book.class" with whatever your Book entity class is.
+
+@Database(entities = {Cat.class}, version = 1, exportSchema = false)  // Replace "Book.class" with whatever your Book entity class is.
 public abstract class AppDatabase extends RoomDatabase {
     public abstract CatDao catDao();          // Replace BookDao with whatever you name your DAO
 
