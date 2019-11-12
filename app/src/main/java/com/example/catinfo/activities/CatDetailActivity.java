@@ -15,10 +15,35 @@ import com.example.catinfo.Favourites;
 import com.example.catinfo.R;
 import com.example.catinfo.model.Cat;
 
+/*@NonNull
+    @PrimaryKey
+    String id;
+
+    String name;
+    String description;
+
+    String referenceImgId;
+
+    // Weight weight;
+
+    String temperament;
+    String origin;
+
+    String lifeSpan;
+
+    @SerializedName("wikipedia_url")
+    String wikipediaUrl;
+    int dogFriendly;*/
+
 public class CatDetailActivity extends AppCompatActivity {
     ConstraintLayout catConstraintLayout;
     TextView nameTextView;
     TextView descriptionTextView;
+    TextView origin;
+    TextView weight;
+    TextView temperament;
+    TextView lifespan;
+    TextView dogFriendly;
     ConstraintLayout favourite;
     ImageView favouriteBtn;
 
@@ -32,6 +57,11 @@ public class CatDetailActivity extends AppCompatActivity {
         descriptionTextView = catConstraintLayout.findViewById(R.id.description);
         favourite = catConstraintLayout.findViewById(R.id.favourite_layout);
         favouriteBtn = catConstraintLayout.findViewById(R.id.favorite_btn);
+        origin = catConstraintLayout.findViewById(R.id.origin);
+        weight = catConstraintLayout.findViewById(R.id.weight);
+        temperament = catConstraintLayout.findViewById(R.id.temperament);
+        lifespan = catConstraintLayout.findViewById(R.id.lifespan);
+        dogFriendly = catConstraintLayout.findViewById(R.id.dog_friendly);
 
         Intent intent = getIntent();
 
@@ -41,6 +71,18 @@ public class CatDetailActivity extends AppCompatActivity {
 
         nameTextView.setText(cat.getName());
         descriptionTextView.setText(cat.getDescription());
+        origin.setText(cat.getOrigin());
+        weight.setText(cat.getWeight());
+        temperament.setText(cat.getTemperament());
+        lifespan.setText(cat.getLifeSpan());
+        int dogFriendlyInt = cat.getDogFriendly();
+        String dogFriendlyStr;
+        if (dogFriendlyInt > 0) {
+            dogFriendlyStr = Integer.toString(dogFriendlyInt);
+        } else {
+            dogFriendlyStr = "N/A";
+        }
+        dogFriendly.setText(dogFriendlyStr);
 
         if (MainActivity.getFavourites().isCatFav(cat)){
             favouriteBtn.setImageResource(android.R.drawable.star_on);

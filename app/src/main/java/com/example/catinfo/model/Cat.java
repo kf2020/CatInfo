@@ -20,6 +20,7 @@ o Dog friendliness level
 
 @Entity
 public class Cat {
+
     @NonNull
     @PrimaryKey
     String id;
@@ -30,8 +31,7 @@ public class Cat {
     @SerializedName("reference_image_id")
     String referenceImgId;
 
-    @SerializedName("weight_imperial")
-    String weightImperial;
+    // Weight weight;
 
     String temperament;
     String origin;
@@ -79,16 +79,19 @@ public class Cat {
         this.referenceImgId = referenceImgId;
     }
 
-    public String getWeightImperial() {
-        return weightImperial;
+    /*public String getWeightImperial() {
+        return weight.getWeightImperial();
     }
 
     public void setWeightImperial(String weightImperial) {
-        this.weightImperial = weightImperial;
-    }
+        weight.setWeightImperial(weightImperial);
+    }*/
 
     public String getTemperament() {
-        return temperament;
+        if (temperament != null) {
+            return temperament;
+        }
+        return "N/A";
     }
 
     public void setTemperament(String temperament) {
@@ -96,7 +99,10 @@ public class Cat {
     }
 
     public String getOrigin() {
-        return origin;
+        if (origin != null) {
+            return origin;
+        }
+        return "N/A";
     }
 
     public void setOrigin(String origin) {
@@ -104,7 +110,10 @@ public class Cat {
     }
 
     public String getLifeSpan() {
-        return lifeSpan;
+        if (lifeSpan != null) {
+            return lifeSpan;
+        }
+        return "N/A";
     }
 
     public void setLifeSpan(String lifeSpan) {
@@ -112,7 +121,10 @@ public class Cat {
     }
 
     public String getWikipediaUrl() {
-        return wikipediaUrl;
+        if (wikipediaUrl != null) {
+            return wikipediaUrl;
+        }
+        return "N/A";
     }
 
     public void setWikipediaUrl(String wikipediaUrl) {
@@ -127,5 +139,8 @@ public class Cat {
         this.dogFriendly = dogFriendly;
     }
 
+    public String getWeight() {
+        return "0";
+    }
 }
 

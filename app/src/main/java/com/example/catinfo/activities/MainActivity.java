@@ -23,15 +23,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        // I want there to be a Fragment in the slot from the start
 
         bottomNavigationView = findViewById(R.id.nav_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-                // menuItem = the item on the bottom nav view that was selected
-                // The id's here belong to the items in the menu of the BottomnNavigationView
-                // The menu is chunked out as bottom_nav_menu.xml in the res > menu folder
                 if (menuItem.getItemId() == R.id.nav_articles) {
                     Fragment fragment = new CatRecyclerFragment();
                     swapFragment(fragment);
@@ -41,19 +37,6 @@ public class MainActivity extends AppCompatActivity {
                     swapFragment(fragment);
                     return true;
                 }
-                /*else if (menuItem.getItemId() == R.id.nav_profile) {
-                    Fragment fragment = new ProfileFragment();
-
-                    // Here's just an example of passing information to the Fragment via Bundle
-                    Bundle bundle = new Bundle();
-                    bundle.putString("param1", "First Argument");
-                    bundle.putString("param2", "Second Argument");
-                    fragment.setArguments(bundle);
-                    // End bundle part
-
-                    swapFragment(fragment);
-                    return true;
-                } */
                 return false;
             }
         });

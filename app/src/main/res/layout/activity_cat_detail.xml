@@ -1,4 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    android:layout_height="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent">
+
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/cat"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -83,6 +88,7 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toLeftOf="@id/cat_img"
             android:layout_marginLeft="10dp"
+            android:textStyle="bold"
             android:textSize="24sp"
             android:text="Description:"
             ></TextView>
@@ -96,14 +102,14 @@
             app:layout_constraintRight_toLeftOf="@id/cat_img"
             android:gravity="left"
             android:layout_marginLeft="10dp"
-            android:textSize="24sp"
+            android:textSize="22sp"
             android:text="Longer Description - this can is named x and y and xz efasg wer asdfalkjoigasndf"
             ></TextView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
     <TextView
-        android:id="@+id/origin"
+        android:id="@+id/origin_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/main_body"
@@ -112,11 +118,21 @@
         android:layout_marginRight="10dp"
         android:layout_marginTop="20dp"
         android:textSize="24sp"
-        android:text="Origin: X"
+        android:textStyle="bold"
+        android:text="Origin: "
+        />
+    <TextView
+        android:id="@+id/origin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/origin_label"
+        app:layout_constraintTop_toTopOf="@id/origin_label"
+        android:textSize="24sp"
+        android:text="X"
         />
 
     <TextView
-        android:id="@+id/weight"
+        android:id="@+id/weight_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/origin"
@@ -124,11 +140,22 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
         android:textSize="24sp"
-        android:text="Weight: X"
+        android:textStyle="bold"
+        android:text="Weight (lbs): "
         />
 
     <TextView
-        android:id="@+id/temperament"
+        android:id="@+id/weight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/weight_label"
+        app:layout_constraintTop_toTopOf="@id/weight_label"
+        android:textSize="24sp"
+        android:text="X"
+        />
+
+    <TextView
+        android:id="@+id/temperament_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/weight"
@@ -136,11 +163,22 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
         android:textSize="24sp"
-        android:text="Temperament: X"
+        android:textStyle="bold"
+        android:text="Temperament: "
         />
 
     <TextView
-        android:id="@+id/lifespan"
+        android:id="@+id/temperament"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toLeftOf="@id/temperament_label"
+        app:layout_constraintTop_toBottomOf="@id/temperament_label"
+        android:textSize="24sp"
+        android:text="X"
+        />
+
+    <TextView
+        android:id="@+id/lifespan_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/temperament"
@@ -148,11 +186,22 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
         android:textSize="24sp"
-        android:text="Lifespan: X"
+        android:textStyle="bold"
+        android:text="Lifespan: "
         />
 
     <TextView
-        android:id="@+id/dog_friendly"
+        android:id="@+id/lifespan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/lifespan_label"
+        app:layout_constraintTop_toTopOf="@id/lifespan_label"
+        android:textSize="24sp"
+        android:text="X"
+        />
+
+    <TextView
+        android:id="@+id/dog_friendly_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toBottomOf="@id/lifespan"
@@ -160,7 +209,19 @@
         android:layout_marginLeft="15dp"
         android:layout_marginRight="10dp"
         android:textSize="24sp"
-        android:text="Dog Friendly: X"
+        android:textStyle="bold"
+        android:text="Dog Friendly (1-5 scale): "
+        />
+
+    <TextView
+        android:id="@+id/dog_friendly"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/dog_friendly_label"
+        app:layout_constraintTop_toTopOf="@id/dog_friendly_label"
+        android:textSize="24sp"
+        android:text="X"
         />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+</ScrollView>

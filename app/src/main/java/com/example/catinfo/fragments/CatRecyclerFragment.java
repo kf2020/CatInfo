@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -34,7 +35,7 @@ import java.util.List;
 public class CatRecyclerFragment extends Fragment {
     private RecyclerView recyclerView;
     private EditText searchInput;
-    private Button searchButton;
+    private ImageButton searchButton;
 
     public CatRecyclerFragment() {
         // Required empty public constructor
@@ -69,6 +70,8 @@ public class CatRecyclerFragment extends Fragment {
 
                 List<Cat> cats = Arrays.asList(allCatsResponse);
 
+                System.out.println(cats);
+
                 db.catDao().insertCats(cats);
 
                 catAdapter.setData(db.catDao().getAllCatsSorted());
@@ -81,7 +84,11 @@ public class CatRecyclerFragment extends Fragment {
         Response.ErrorListener errorListener = new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getContext(),"The request failed: " + error.getMessage(), Toast.LENGTH_SHORT).show();
+                catAdapter.setData(db.catDao().getAllCatsSorted());
+                recyclerView.setAdapter(catAdapter);
+
+                Toast.makeText(getContext(),"The request failed: " //+ error.getMessage()
+                        , Toast.LENGTH_SHORT).show();
                 requestQueue.stop();
             }
         };
@@ -96,7 +103,7 @@ public class CatRecyclerFragment extends Fragment {
         return view;
     }
 
-    private void setOnClick(final Button btn, final CatAdapter catAdapter){
+    private void setOnClick(final ImageButton btn, final CatAdapter catAdapter){
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
