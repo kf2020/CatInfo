@@ -57,6 +57,7 @@ public class CatDetailActivity extends AppCompatActivity {
     TextView temperament;
     TextView lifespan;
     TextView dogFriendly;
+    TextView wikiUrl;
     ConstraintLayout favourite;
     ImageView favouriteBtn;
 
@@ -76,6 +77,7 @@ public class CatDetailActivity extends AppCompatActivity {
         temperament = catConstraintLayout.findViewById(R.id.temperament);
         lifespan = catConstraintLayout.findViewById(R.id.lifespan);
         dogFriendly = catConstraintLayout.findViewById(R.id.dog_friendly);
+        wikiUrl = catConstraintLayout.findViewById(R.id.wikipedia_url);
 
         Intent intent = getIntent();
 
@@ -89,6 +91,7 @@ public class CatDetailActivity extends AppCompatActivity {
         weight.setText(cat.getWeight());
         temperament.setText(cat.getTemperament());
         lifespan.setText(cat.getLifeSpan());
+        wikiUrl.setText(cat.getWikipediaUrl());
         int dogFriendlyInt = cat.getDogFriendly();
         String dogFriendlyStr;
         if (dogFriendlyInt > 0) {

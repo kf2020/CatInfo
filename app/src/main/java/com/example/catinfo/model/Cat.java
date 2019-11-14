@@ -29,6 +29,10 @@ public class Cat {
     String description;
 
 
+
+    @SerializedName("wikipedia_url")
+    String wikipediaUrl;
+
     Weight weight;
 
     String temperament;
@@ -109,6 +113,14 @@ public class Cat {
 
     public String getWeight() {
         return weight.getWeightImperial();
+    }
+
+    public String getWikipediaUrl() {
+        return wikipediaUrl;
+    }
+
+    public void setWikipediaUrl(String wikipediaUrl) {
+        this.wikipediaUrl = wikipediaUrl;
     }
 }
 
